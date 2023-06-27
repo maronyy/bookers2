@@ -6,6 +6,4 @@
 <%= book.body %>
 <% end %>
 
-<% if @user = current_user %>
 <%= render partial: 'inf', locals: { user: @user } %>
-<% end %>
