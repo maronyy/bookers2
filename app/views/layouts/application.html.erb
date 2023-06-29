@@ -16,66 +16,84 @@
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
           <a href="/">Bookers</a>
-          
+
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
     <% if user_signed_in? %>
     <li class="nav-item p-2">
-     <i class="fa-solid fa-house-chimney"></i>
-     <%= link_to "Home", user_path(current_user) %>
+     <%= link_to user_path(current_user) do %>
+      <i class="fa-solid fa-house-chimney"></i>
+      <p>Home</p>
+     <% end %>
+
     </li>
-     
+
     <li class="nav-item p-2">
+     <%= link_to users_path do %>
      <i class="fa-solid fa-user"></i>
-     <%= link_to "Users", users_path %>
+     <p>Users</p>
+     <% end %>
     </li>
-     
+
     <li class="nav-item p-2">
+     <%= link_to books_path do %>
      <i class="fa-solid fa-book"></i>
-     <%= link_to "Books", books_path %>
-    </li>
+     <p>Books</p>
+     <% end %>
      
-    <li class="nav-item p-2">
-     <i class="fa-solid fa-right-from-bracket"></i>
-     <%= link_to "Log out", destroy_user_session_path, method: :delete %>
     </li>
-      
+
+    <li class="nav-item p-2">
+     <%= link_to destroy_user_session_path, method: :delete do %>
+     <i class="fa-solid fa-right-from-bracket"></i>
+     <p>Log out</p>
+     <% end %>
+    </li>
+
     <% else %>
     <li class="nav-item p-2">
+     <%= link_to do %>
      <i class="fa-solid fa-house-chimney"></i>
-     <%= link_to "Home" %>
+     <p>Home</p>
+     <% end %>
     </li>
-     
+
     <li class="nav-item p-2">
+     <%= link_to home_about_path do %>
      <i class="fa-solid fa-link"></i>
-     <%= link_to "About", home_about_path %>
+     <p>About</p>
+     <% end %>
     </li>
-     
+
     <li class="nav-item p-2">
-     <i class="fa-solid fa-user-plus"></i>
-     <%= link_to "Sign up", new_user_registration_path %>
+     <%= link_to new_user_registration_path do %>
+      <i class="fa-solid fa-user-plus"></i>
+      <p>Sign up</p>
+     <% end %>
     </li>
-     
+
     <li class="nav-item p-2">
+     <%= link_to new_user_session_path do %>
      <i class="fa-solid fa-right-to-bracket"></i>
-     <%= link_to "Log in", new_user_session_path %>
+     <p>Log in</p>
+     <% end %>
     </li>
-     
+
     <% end %>
        </ul>
       </div>
     </div>
    </nav>
   </header>
-  
+
   <main class="mb-auto">
     <%= yield %>
   </main>
-  
+
   <footer class="bg-white">
    <div class="container">
      <p class="fw-light text-center">CopyRight Infratop.inc</p>
    </div>
-  </footer> 
+  </footer>
   </body>
 </html>

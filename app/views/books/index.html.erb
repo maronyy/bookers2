@@ -2,9 +2,12 @@
 <p>Find me in app/views/books/index.html.erb</p>
 
 <% @books.each do |book| %>
-<%= image_tag book.user.get_image(50,50) %>
-<%= book.user.name %>
-<%= book.title %>
+<%= link_to user_path(book.user.id) do %>
+ <%= image_tag book.user.get_image(50,50) %>
+<% end %>
+<%= link_to book_path(book.id) do %>
+ <%= book.title %>
+<% end %>
 <%= book.body %>
 <% end %>
 

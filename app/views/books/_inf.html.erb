@@ -5,6 +5,18 @@
 <p>introduction</p>
 <p><%= user.introduction %></p>
 
+<% if user = current_user %>
+ <%= link_to edit_user_path(@user.id) do %>
+ <i class="fa-solid fa-gear"></i>
+ <% end %>
+
+<% else %>
+ <%= link_to current_user_path do %>
+ <i class="fa-solid fa-gear"></i>
+ <% end %>
+ 
+<% end %>
+
 <h2>New book</h2>
  <%= form_with model: @book, url: books_path, method: :post do |f| %>
 <h4>Title</h4>

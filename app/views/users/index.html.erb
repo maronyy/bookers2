@@ -1,9 +1,9 @@
 <h1>Users#index</h1>
 <p>Find me in app/views/users/index.html.erb</p>
 <% @users.each do |user| %>
-<%= user.name %>
-<%= user.introduction %>
 <%= image_tag user.get_image(50,50) %>
+<%= user.name %>
+<%= link_to "show", user_path(user.id) %>
 <% end %>
 
 <%= render partial: 'books/inf', locals: { user: @user } %>
