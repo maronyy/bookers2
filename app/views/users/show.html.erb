@@ -1,6 +1,10 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
-<%= @user.name %>
+<% @books.each do |book| %>
+<%= image_tag @user.get_image(50,50) %>
+<%= book.title %>
+<%= book.body %>
+<% end %>
 
 <%= render partial: 'books/inf', locals: { user: @user } %>
 
