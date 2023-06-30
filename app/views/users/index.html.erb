@@ -1,9 +1,26 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
-<% @users.each do |user| %>
-<%= image_tag user.get_image(50,50) %>
-<%= user.name %>
-<%= link_to "show", user_path(user.id) %>
-<% end %>
 
-<%= render partial: 'books/inf', locals: { user: @user } %>
+
+<div class="container">
+ <div class="row">
+    <div class="col-lg-4">
+     <%= render partial: 'books/inf', locals: { user: @user } %>
+    </div>
+    
+    <div class="col-lg-8">
+    <h1>Users</h1>
+    <table class="table table-hover">
+        <tr>
+         <th>image</th>
+         <th>name</th>
+         <th></th>
+        </tr>
+        <tr>
+        <% @users.each do |user| %>
+        <td><%= image_tag user.get_image(50,50) %></td>
+        <td><%= user.name %></td>
+        <td><%= link_to "show", user_path(user.id) %></td>
+        </tr>
+        <% end %>
+    </table>
+ </div>
+</div>

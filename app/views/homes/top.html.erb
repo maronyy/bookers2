@@ -1,2 +1,32 @@
-<h1>Homes#top</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
+<div>
+ <% flash.each do |message_type, message| %>
+  <%= content_tag :div, message, class: message_type %>
+ <% end %>
+</div>
+ 
+<div class="container">
+  <div>  
+   <h1 class="text-center">welcome to
+     <strong><i class="fa-solid fa-book"></i>
+       Bookers !!</strong></h1>
+  </div>
+ 
+  <div>
+    <p class="text-center">In
+      <strong><i class="fa-solid fa-book"></i>
+      Bookers</strong>,
+
+      you can share and exchange your opinions , inpressions , and emotions<br>
+
+      about various books!</p>
+  </div>
+
+  <div class="text-center">
+  　<%= link_to "Log in", new_user_session_path, class: "btn btn-primary d-grid gap-2 col-6 mx-auto" %>
+  </div>
+  <div class="text-center">
+　  <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success d-grid gap-2 col-6 mx-auto"%>
+  </div>
+
+ </div>
+</div>

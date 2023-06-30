@@ -1,22 +1,29 @@
-<h2>User info</h2>
- <%= image_tag user.get_image(50,50) %>
-<p>name</p>
-<p><%= user.name %></p>
-<p>introduction</p>
-<p><%= user.introduction %></p>
+<h1>User info</h1>
+ <%= image_tag user.get_image(100,100) %>
+ <table class = "table">
+ <tr>
+ <td><p>name</p></td>
+ <td><p><%= user.name %></p></td>
+ </tr>
+ <tr>
+ <td><p>introduction</p></td>
+ <td><p><%= user.introduction %></p></td>
+ <tr>
+ </table>
 
-<% if user = current_user %>
- <%= link_to edit_user_path(@user.id) do %>
+<% if user == current_user %>
+ <%= link_to edit_user_path(@user.id), class: "btn btn-outline-secondary btn-block" do %>
  <i class="fa-solid fa-gear"></i>
  <% end %>
 
 <% else %>
- <%= link_to current_user_path do %>
+ <%= link_to user_path(current_user), class: "btn btn-outline-secondary btn-block" do %>
  <i class="fa-solid fa-gear"></i>
  <% end %>
  
 <% end %>
 
+<div class="mt-4 mb-4">
 <h2>New book</h2>
  <%= form_with model: @book, url: books_path, method: :post do |f| %>
 <h4>Title</h4>
@@ -25,3 +32,4 @@
  <%= f.text_field :body %>
  <%= f.submit 'Create Book' %>
 <% end %>
+</div>

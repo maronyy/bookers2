@@ -1,10 +1,35 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-<% @books.each do |book| %>
-<%= image_tag @user.get_image(50,50) %>
-<%= book.title %>
-<%= book.body %>
-<% end %>
+<div>
+ <%= flash[:notice3] %>
+ <% flash.each do |message_type, message| %>
+  <%= content_tag :div, message, class: message_type %>
+ <% end %>
+</div>
 
-<%= render partial: 'books/inf', locals: { user: @user } %>
-
+<div class="container">
+ <div class="row">
+    <div class="col-lg-4">
+      <%= render partial: 'books/inf', locals: { user: @user } %>
+    </div>
+ 
+    <div class="col-lg-8">
+    <h1>Books</h1>
+    <table class="table table-hover">
+        <tr>
+         <th></th>
+         <th>Title</th>
+         <th>Opinion</th>
+        </tr>
+        <% @books.each do |book| %>
+        <tr>
+         <td><%= image_tag @user.get_image(50,50) %></td>
+         <td>
+          <%= link_to book_path(book.id) do %>
+          <%= book.title %>
+          <% end %>
+         </td>
+         <td><%= book.body %></td>
+        </tr>
+        <% end %>
+    </table>
+ </div>
+</div>
