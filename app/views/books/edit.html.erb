@@ -7,18 +7,29 @@
   </ul>
 <% end %>
 
-<h1>Books#edit</h1>
-<p>Find me in app/views/books/edit.html.erb</p>
+<div class="container-fluid">
+  <div class="my-3 center-block">
+    <div>
+<h1>Editing Book</h1>
 
 <%= form_with model: @book,url:book_path(@book.id),method: :patch do |f| %>
- <h2>Title</h2>
+ <p>Title</p>
  <%= f.text_field :title %>
 
-<h2>Body</h2>
+<p>Opinion</p>
  <%= f.text_area :body %>
- <%= f.submit 'Update Book' %>
  
+ <div>
+  <button type="submit" class="btn btn-primary">Update Book</button>
+ </div>
+ 
+ <div class="d-flex">
  <%= link_to "Show",  book_path(@book.id) %>
  <%= link_to "Back", "/books" %>
+ </div>
+ 
+ </div>
+ </div>
+ 
 
 <% end %>

@@ -5,7 +5,7 @@
  <% end %>
 </div>
 
-<div class="container">
+<div class="container-fluid">
  <div class="row">
     <div class="col-lg-4">
       <%= render partial: 'books/inf', locals: { user: @user } %>
@@ -15,8 +15,8 @@
     <h1>Books</h1>
     <table class="table table-hover">
         <tr>
-         <th></th>
-         <th>Title</th>
+         <th style="width: 10%"></th>
+         <th style="width: 20%">Title</th>
          <th>Opinion</th>
         </tr>
         <% @books.each do |book| %>

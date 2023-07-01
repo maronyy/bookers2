@@ -26,10 +26,12 @@
 <div class="mt-4 mb-4">
 <h2>New book</h2>
  <%= form_with model: @book, url: books_path, method: :post do |f| %>
-<h4>Title</h4>
+<p>Title</p>
  <%= f.text_field :title %>
-<h4>Opinion</h4>
+<p>Opinion</p>
  <%= f.text_field :body %>
- <%= f.submit 'Create Book' %>
+ <div class="my-2">
+  <button type="submit" class="btn btn-success">Create Book</button>
+ </div>
 <% end %>
 </div>

@@ -7,18 +7,26 @@
   </ul>
 <% end %>
 
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="container-fluid">
+  <div class="center-block">
+    <div>
+<h1>User info</h1>
 
  <%= form_with model: @user,url:user_path(@user.id),method: :patch do |f| %>
- <h2>Name</h2>
+ <p>Name</p>
  <%= f.text_field :name %>
  
- <h2>Image</h2>
+ <p>Image</p>
  <%= f.file_field :image, accept: "image/*" %>
 
-<h2>Introduction</h2>
+<p>Introduction</p>
  <%= f.text_area :introduction %>
- <%= f.submit 'Update User' %>
+ 
+ <div>
+  <button type="submit" class="btn btn-primary">Update User</button>
+ </div>
+ 
+ </div>
+ </div>
  
  <% end %>
