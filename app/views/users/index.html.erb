@@ -1,12 +1,12 @@
 
 
-<div class="container-fluid">
+<div class="container">
  <div class="row">
-    <div class="col-lg-4">
+    <div class="col-md-3">
      <%= render partial: 'books/inf', locals: { user: @user } %>
     </div>
     
-    <div class="col-lg-8">
+    <div class="col-md-8 offset-md-1">
     <h1>Users</h1>
     <table class="table table-hover">
         <tr>
@@ -18,7 +18,7 @@
         <% @users.each do |user| %>
         <td><%= image_tag user.get_image(50,50) %></td>
         <td><%= user.name %></td>
-        <td><%= link_to "show", user_path(user.id) %></td>
+        <td><%= link_to "Show", user_path(user) %></td>
         </tr>
         <% end %>
     </table>

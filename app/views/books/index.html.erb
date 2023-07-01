@@ -7,13 +7,13 @@
   </ul>
 <% end %>
 
-<div class="container-fluid">
+<div class="container">
  <div class="row">
-    <div class="col-lg-4">
+    <div class="col-md-3">
       <%= render partial: 'inf', locals: { user: @user } %>
     </div>
  
-    <div class="col-lg-8">
+    <div class="col-md-8 offset-md-1">
     <h1>Books</h1>
     <table class="table table-hover">
         <tr>

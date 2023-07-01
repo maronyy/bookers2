@@ -5,13 +5,13 @@
  <% end %>
 </div>
 
-<div class="container-fluid">
+<div class="container">
  <div class="row">
-    <div class="col-lg-4">
+    <div class="col-md-3">
       <%= render partial: 'books/inf', locals: { user: @user } %>
     </div>
  
-    <div class="col-lg-8">
+    <div class="col-md-8 offset-md-1">
     <h1>Books</h1>
     <table class="table table-hover">
         <tr>
@@ -21,7 +21,11 @@
         </tr>
         <% @books.each do |book| %>
         <tr>
-         <td><%= image_tag @user.get_image(50,50) %></td>
+         <td>
+          <%= link_to user_path(@user.id) do %>
+           <%= image_tag @user.get_image(50,50) %>
+          <% end %>
+         </td>
          <td>
           <%= link_to book_path(book.id) do %>
           <%= book.title %>

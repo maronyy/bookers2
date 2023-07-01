@@ -19,70 +19,72 @@
 
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
+              
     <% if user_signed_in? %>
     <li class="nav-item p-2">
      <%= link_to user_path(current_user) do %>
-      <i class="fa-solid fa-house-chimney"></i>
-      <p>Home</p>
+      <div class="d-inline"><i class="fa-solid fa-home"></i></div>
+      <p class="d-inline">Home</p>
      <% end %>
-
+      
     </li>
 
     <li class="nav-item p-2">
      <%= link_to users_path do %>
-     <i class="fa-solid fa-user"></i>
-     <p>Users</p>
+     <div class="d-inline"><i class="fa-solid fa-users"></i></div>
+     <p class="d-inline">Users</p>
      <% end %>
     </li>
 
     <li class="nav-item p-2">
      <%= link_to books_path do %>
-     <i class="fa-solid fa-book"></i>
-     <p>Books</p>
+      <div class="d-inline"><i class="fa-solid fa-book-open"></i></div>
+     <p class="d-inline">Books</p>
      <% end %>
      
     </li>
 
     <li class="nav-item p-2">
      <%= link_to destroy_user_session_path, method: :delete do %>
-     <i class="fa-solid fa-right-from-bracket"></i>
-     <p>Log out</p>
+      <div class="d-inline"><i class="fa-solid fa-sign-out-alt"></i></div>
+     <p class="d-inline">Log out</p>
      <% end %>
     </li>
 
     <% else %>
     <li class="nav-item p-2">
      <%= link_to root_path do %>
-     <i class="fa-solid fa-house-chimney"></i>
-     <p>Home</p>
+      <div class="d-inline"><i class="fa-solid fa-home"></i></div>
+     <p class="d-inline">Home</p>
      <% end %>
     </li>
 
     <li class="nav-item p-2">
      <%= link_to home_about_path do %>
-     <i class="fa-solid fa-link"></i>
-     <p>About</p>
+      <div class="d-inline"><i class="fa-solid fa-link"></i></div>
+     <p class="d-inline">About</p>
      <% end %>
     </li>
 
     <li class="nav-item p-2">
      <%= link_to new_user_registration_path do %>
-      <i class="fa-solid fa-user-plus"></i>
-      <p>Sign up</p>
+       <div class="d-inline"><i class="fa-solid fa-user-plus"></i></div>
+      <p class="d-inline">Sign up</p>
      <% end %>
     </li>
 
     <li class="nav-item p-2">
      <%= link_to new_user_session_path do %>
-     <i class="fa-solid fa-right-to-bracket"></i>
-     <p>Log in</p>
+      <div class="d-inline"><i class="fa-solid fa-sign-in-alt"></i></div>
+     <p class="d-inline">Log in</p>
      <% end %>
     </li>
 
     <% end %>
+
        </ul>
+       </div>
       </div>
-    </div>
    </nav>
   </header>
 
