@@ -20,6 +20,21 @@
           </td>
           <td style="width: 20%"><p><%= @book.title %></p></td>
           <td><p><%= @book.body %></p></td>
+          <td>
+        <% if @book.favorited_by?(current_user) %>
+         <p class="text-primary">
+            <%= link_to book_favorites_path(@book), method: :delete do %>
+             <i class="fa-solid fa-heart"></i><%= @book.favorites.count %>
+            <% end %>
+         </p>
+       　 <% else %>
+         <p class="text-danger">
+            <%= link_to book_favorites_path(@book), method: :post do %>
+            <i class="fa-solid fa-heart"></i><%= @book.favorites.count %>
+        　　<% end %>
+         </p>
+         <% end %>
+        </td>
           <% if @book.user == current_user %>
           <td><%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-success" %></td>
           <td><%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-danger"%></td>
