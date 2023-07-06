@@ -24,6 +24,7 @@ before_action :is_matching_login_user1, only: [:edit, :update]
   def show
     @book = Book.find(params[:id])
     @user = @book.user
+    @book_comment = BookComment.new
   end
 
   def edit
@@ -50,7 +51,7 @@ before_action :is_matching_login_user1, only: [:edit, :update]
  def book_params
    params.require(:book).permit(:title, :body, :user_id)
  end
- 
+
   def is_matching_login_user1
     book = Book.find(params[:id])
     unless book.user_id == current_user.id
